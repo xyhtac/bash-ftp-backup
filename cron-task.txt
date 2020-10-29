@@ -1,0 +1,3 @@
+
+# Site backup robot
+*/10 * * * *  /home/public_html/backup-robot.sh 2>&1 | /usr/bin/mail -s "no-reply@site.org: backup report" webmaster@site.org
