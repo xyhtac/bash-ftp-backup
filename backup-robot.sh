@@ -46,8 +46,15 @@ cd $WORKDIR
 BACKUPDATE=$(date +%Y.%m.%d)
 DBFILE=$DBNAME-$BACKUPDATE.sql
 echo "Dumping '$DBNAME' database to '$DBFILE'"
+
+# dump MySQL database [default]
 mysqldump -u$DBUSER -p$DBPASS $DBNAME > $DBFILE
 
+# dump PostgreSQL database [optional]
+# to use pg_dump set IPv4 auth method to 'password' in /var/lib/pgsql/data/pg_hba.conf
+# and we use -h localhost to force network type connection.
+
+# PGPASSWORD="$DBPASS" pg_dump -h 127.0.0.1 -U $DBUSER -F t $DBNAME > $DBFILE
 
 # Packing files from given backup directory
 DIRFILE=$BACKUPID-$BACKUPDATE.tar
