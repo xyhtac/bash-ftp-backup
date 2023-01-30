@@ -1,5 +1,13 @@
 #!/bin/bash
 # Site backup for CentOS SSH CLI
+# required lftp for file upload.
+# to add SSL support add following lines to /etc/lftp.conf
+# and put your ssl cert to /etc:
+#  set ssl-allow true
+#  set ssl:ca-file "/etc/lftp-cert.crt"
+#  set ssl:verify-certificate no
+#  set ftp:ssl-protect-data true
+#
 # HINT! This file contains DB access credentials and must be kept secure
 # --- Backup config settings ---
 
